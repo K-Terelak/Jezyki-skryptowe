@@ -1,0 +1,28 @@
+1. chkdsk
+2. tree
+3. clipbrd
+4. dir /b
+5. tree C:
+6. comp plik.txt plik2.txt
+7. mkdir D:\starsze_niz_4_mies & FORFILES /D -120 /C "cmd /c copy @file D:\starsze_niz_4_mies\"
+8. forfiles /p D:\starsze_niz_4_mies\ /m *.* /c "cmd /c type @path"
+9. FORFILES /D -120 /C "cmd /c comp @file D:\starsze_niz_4_mies\@file"
+10. ver
+11. systeminfo & wmic logicaldisk get volumename,name & ipconfig /all
+12. forfiles /s /m *.exe /c "cmd /c echo @path"
+13. ping 8.8.8.8
+14. tasklist
+15. 
+echo jeden > plik.txt
+echo dwa >> plik.txt
+echo trzy >> plik.txt
+echo cztery >> plik.txt
+sort plik.txt > plikt2.txt
+16. winchat
+17. copy *.txt merge.txt
+18. forfiles /p D:\starsze_niz_4_mies /m *.* /C "cmd /c attrib +a @path"
+19. forfiles /p D:\starsze_niz_4_mies /m *.txt /C "cmd /c del @path"
+20.
+@echo off
+echo witaj
+pause

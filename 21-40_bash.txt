@@ -1,0 +1,82 @@
+21.
+ls -1 > pliki_katalogi.txt
+
+22.
+ls -1 $1 > $2
+
+23.
+ls -1 $1 | grep ".$2" > lista_plikow.txt
+
+24.
+cp -r -u $1/ backup/
+
+25.
+rm -f $1/*.tmp
+
+26.
+echo Podaj swoje imie:
+read imie
+echo Witaj $imie
+
+27.
+W bashu nie ma zmiennych lokalnych
+
+28.
+W bashu nie ma etykiet
+
+29.
+read -p "Press any key to continue" var;
+echo "Thanks"
+
+30.
+#wymaga zainstalowania narzędzia xdotool
+echo "Podaj imię:"
+read name
+xdotool getactivewindow set_window --name $name
+
+31.
+#wymaga zainstalowania narzędzia xdotool
+xdotool getactivewindow set_window --name $1
+
+32.
+shift
+shift
+echo $1 $2 $3 $4 $5
+
+33.
+#wymaga zainstalowania narzędzia xdotool
+xdotool getactivewindow set_window --name $1
+tree $1
+
+34.
+#wymaga zainstalowania narzędzia xdotool
+read -p "Podaj nazwe katalogu:" katalog;
+xdotool getactivewindow set_window --name $katalog
+read -p "Podaj nazwe pliku wyjsciowego" wyjscie;
+ls $katalog > $wyjscie;
+
+35.
+for element in jeden dwa trzy; do echo $element; done
+
+36.
+cp *.txt $1
+
+37.
+for file in *.png *.jpg do name=$(echo "$file" | cut -f 1 -d '.')
+mv $file $name.eps
+done
+
+38.
+read -p "Podaj nazwe pliku wyjsciowego: " wyjscie;
+read -p "Podaj ilosc iteracji: " ile;
+for i in $(seq 0 $ile)
+do
+echo "$i" >> $wyjscie;
+done
+
+39.
+sh zad37.sh
+sh 39a.sh /home/krzys/zadania
+
+40.
+ls -d */

@@ -1,0 +1,120 @@
+21.
+@echo off
+dir > pliki_katalogi.txt
+
+22.
+@echo off
+dir %1\*.txt >%2
+
+23.
+@echo off
+dir %1\*.%2 > lista_plikow.txt
+
+24.
+@echo off
+mkdir backup
+xcopy %1 backup /s /d
+
+25.
+@echo off
+del %1\*.tmp
+
+26.
+@echo off
+set /p imie=podaj imie:
+echo Dzien dobry %imie%
+pause
+
+27.
+@echo off
+PATH="C:\"
+echo %PATH%
+SETLOCAL
+PATH="D:\"
+echo %PATH%
+ENDLOCAL
+echo %PATH%
+pause
+
+28.
+@echo off
+echo 1
+echo 2 
+goto skip
+echo 3
+echo 4
+:skip
+echo 5
+echo 6
+pause
+
+29.
+@echo off
+echo nacisnij spacje
+pause
+echo dzieki
+pause
+
+30.
+@echo off
+set /p imie=podaj imie:
+title %imie%
+pause
+
+31.
+@echo off
+title %1
+pause
+
+32.
+@echo off
+shift /2
+echo %1
+echo %2
+echo %3
+echo %4
+echo %5
+pause
+
+33.
+@echo off
+call zad31.bat %1
+tree %1
+pause
+
+34.
+@echo off
+set /p source=Podaj sciezke:
+set /p dest=Podaj plik do ktorego zapisac:
+dir call zad33.bat %source% > %dest%
+
+35.
+@echo off
+for %%i in (jeden dwa trzy cztery piec) do (echo %%i)
+pause
+
+36.
+@echo off
+copy *.txt %1
+
+37.
+@echo off
+ren *.jpg *.eps
+ren *.png *.eps
+
+38.
+@echo off
+set /p ile=Ile liczb:
+FOR /L %%x IN (0,1,%ile%) DO echo %%x >> %1
+pause
+
+39.
+@echo off
+call zad37.bat
+call zad33.bat C:\Users\Krzys\Desktop\testowanie
+pause
+
+40.
+@echo off
+dir /a:d /b
+pause

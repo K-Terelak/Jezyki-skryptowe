@@ -1,0 +1,74 @@
+1. df
+
+2. tree -d
+
+3. xclip -out -selection clipboard
+
+4. ls -la
+
+5. tree /
+
+6. 
+for file in $(ls -p | grep -v /)
+do
+    for file2 in $(ls -p | grep -v /)
+    do
+        cmp "$file" "$file2"
+    done
+done
+
+7. 
+files=$(find . -ctime +120);
+for file in files; do mv $file wczesniej_niz_4_msc/; done
+
+8. 
+for file in $(ls -1 wczesniej_niz_4_mies/)
+do
+    vi $file
+done
+
+9.
+for file in $(ls -p wczesniej_niz_4_mies/)
+do
+    for file2 in $(ls -p wczesniej_niz_4_mies/)
+    do
+        cmp "$file" "$file2"
+    done
+done
+
+10.hostnamectl
+
+11.
+info=$(lsblk -r -o NAME,PATH -n)
+echo "Nazwa: $(uname -n)"
+echo "Woluminy:\n$dev"
+echo "Ilość woluminów:$(echo $dev | wc -l)"
+echo "Interfejsy sieciowe:\n$(ifconfig)"
+
+12.
+find / -perm /111 | wc -l
+
+13.
+ping 8.8.8.8
+
+14.
+ps -e | wc -;
+
+15.
+printf "jeden\ndwa\ntrzy\ncztery" > dane.txt
+echo $(sort dane.txt) > posortowane.txt
+
+16.
+write <nazwa>
+
+17.
+cat *.txt > zlaczone.txt
+
+18.
+for file in *.txt; do tar -cvf "$file.tar" $file; rm $file; done
+
+19.
+rm -f *.txt
+
+20.
+echo "witaj"

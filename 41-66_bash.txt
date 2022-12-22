@@ -1,0 +1,263 @@
+41.
+ls -d */ >>$1
+
+42.
+rm -f *.tmp
+
+43.
+rm -f "$1"/*.tmp
+
+44.
+read -p "Podaj rozszerzenie pliku: " typ;
+files=$(ls | grep .$typ);
+if [ -n "$files" ]
+then rm -f *.$typ
+else
+echo "Brak plikow o takim rozszerzeniu"
+fi
+
+45.
+read -p "Podaj liczbe: " liczba;
+for (( c=1; c<=$liczba; c++))
+do
+echo $c >> $1;
+done
+
+46.
+read -p "Podaj liczbe: " liczba;
+for ((x=1;x<=$liczba;x++))
+do echo $x >> $1;
+done
+
+47.
+read -p "wpisz: usun lub zrob" co;
+case "$co" in
+"zrob")
+	touch test.txt
+	;;
+"usun")
+	rm test.txt
+	;;
+*)
+	echo "Nie znaleziono"
+esac
+
+48.
+find / -name $1
+
+49.
+rm $1/*.tmp
+
+50.
+Linux nie posiada rejestru systemowego, zaś wszelkiego rodzaju odpowiedniki windowsowego menu start są nieustandaryzowane.
+
+51.
+read -p "Podaj dzialanie arytmetyczne: (np: 2 + 2) " l1 znak l2;
+case "$znak" in
+"+")
+	echo "$(($l1+$l2))"
+	;;
+"-")
+	echo "$(($l1-$l2))"
+	;;
+"*")
+	echo "$(($l1*$l2))"
+	;;
+"/")
+	echo "$(($l1/$l2))"
+	;;
+esac
+
+52.
+echo "obase=10; ibase=16; $1" | bc
+
+53.
+read -p "Podaj liczbe w formacie hexadecymalnym: " hex;
+echo "obase=10; ibase=16; $hex" | bc
+
+54.
+miesiac=$(echo "$1" | tr '[:upper:]' '[:lower:]')
+case "$miesiac" in
+"styczeń")
+	echo "1"
+	;;
+"luty")
+	echo "2"
+	;;
+"marzec")
+	echo "3"
+	;;
+"kwiecień")
+	echo "4"
+	;;
+"maj")
+	echo "5"
+	;;
+"czerwiec")
+	echo "6"
+	;;
+"lipiec")
+	echo "7"
+	;;
+"sierpień")
+	echo "8"
+	;;
+"wrzesień")
+	echo "9"
+	;;
+"październik")
+	echo "10"
+	;;
+"listopad")
+	echo "11"
+	;;
+"grudzień")
+	echo "12"
+	;;
+esac
+
+55.
+echo "Podaj miesiąc:"
+read miesiac
+miesiac=$(echo "$miesiac" | tr '[:upper:]' '[:lower:]')
+case "$miesiac" in
+"styczeń")
+	echo "1"
+	;;
+"luty")
+	echo "2"
+	;;
+"marzec")
+	echo "3"
+	;;
+"kwiecień")
+	echo "4"
+	;;
+"maj")
+	echo "5"
+	;;
+"czerwiec")
+	echo "6"
+	;;
+"lipiec")
+	echo "7"
+	;;
+"sierpień")
+	echo "8"
+	;;
+"wrzesień")
+	echo "9"
+	;;
+"październik")
+	echo "10"
+	;;
+"listopad")
+	echo "11"
+	;;
+"grudzień")
+	echo "12"
+	;;
+esac
+
+56.
+miesiac=$(cat miesiąc.txt | tr '[:upper:]' '[:lower:]')
+case "$miesiac" in
+"styczeń")
+	echo "1"
+	;;
+"luty")
+	echo "2"
+	;;
+"marzec")
+	echo "3"
+	;;
+"kwiecień")
+	echo "4"
+	;;
+"maj")
+	echo "5"
+	;;
+"czerwiec")
+	echo "6"
+	;;
+"lipiec")
+	echo "7"
+	;;
+"sierpień")
+	echo "8"
+	;;
+"wrzesień")
+	echo "9"
+	;;
+"październik")
+	echo "10"
+	;;
+"listopad")
+	echo "11"
+	;;
+"grudzień")
+	echo "12"
+	;;
+esac
+
+57.
+read -p "Napisz cos: " text;
+echo ${text:0:2}
+echo ${text:2:1}
+
+58.
+echo $1 | sed "s/nie//g"
+
+59.
+sed "s/nie//g" $1
+
+60.
+text=""
+while :
+do
+	echo "Obecny ciąg: $text"
+	echo "Podaj ciąg:"
+	read th
+	STRING="$text$th"
+done
+
+61.
+read -p "Podaj katalog w ktorym znajduja sie pliki: " sciezka;
+cat "$sciezka/dane1.txt" "$sciezka/dane2.txt"
+
+62.
+W bashu tekst w cudzysłowie oznacza string i są automatycznie pomijane.
+
+63.
+echo "MENU"
+echo "1 - opcja1"
+echo "2 - opcja2"
+read opcja
+case "$opcja" in
+"1")
+	echo "opcja1"
+	;;
+"2")
+	echo "opcja2"
+	;;
+esac
+
+64.
+echo $1
+sed "s/nie/tak/g" $1
+
+65.
+sed "s/nie/tak/g" $1 > $2
+
+66.
+rename .txt .text $1/*.txt
+if [ "$2" == "copy" ]
+then
+	read -p "Podaj datę (yyyy-mm-dd): " data
+	read -p "Podaj katalog: " katalog
+	mkdir $katalog
+	for path in $(find . -type f -newerct "$data")
+	do
+		cp $path "$katalog/"
+	done
+fi

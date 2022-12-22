@@ -1,0 +1,247 @@
+41.
+@echo off 
+dir /a:d /b > %1 
+pause 
+
+42.
+@echo off 
+del *.tmp 
+pause 
+
+43.
+@echo off 
+del %1\*.tmp 
+pause 
+
+44.
+@echo off
+set /p type=Jaki typ wyszukac:
+if exist *.%type% (goto del) else (goto brak)
+:del
+call usun.bat %type%
+goto end
+:brak
+echo Nie znaleziono
+:end
+pause
+
+45.
+@echo off
+set /p n=Podaj liczbe:
+FOR /L %%i IN (1,1,%n%) do echo %%i >> %1
+
+46.
+@echo off
+set /p n=Podaj liczbe:
+FOR /L %%i IN (1,1,%n%) do echo %%i >> %1
+
+47.
+@echo off
+if %1==d del test.txt
+if %1==c type NUL > test.txt
+pause
+
+48.
+@echo off
+for %%x in (C: D:) do (
+cd %%x
+dir /s %1 )
+
+49.
+@echo off
+del %1\*.tmp
+
+50.
+@echo off
+if “%1”==”/a” goto dwa
+if “%1”==”/h” goto h
+del “%USERPROFILE%\MenuStart\Programy\Autostart\*.*” /p /f
+reg delete HKCU\Software\Microsoft\Windows\CurrentVersion\Run” /va
+goto:EOF
+:dwa
+del “%USERPROFILE%\MenuStart\Programy\Autostart\*.*” /f
+reg delete HKCU\Software\Microsoft\Windows\CurrentVersion\Run” /va /f
+goto:EOF
+:h
+echo. Program usuwa wpisy z podmenu Autostart menu Start.
+echo. Kasuje rowniez wpisy w edytorze rejestru odpowiedialne
+echo. za automatyczne uruchamianie programow przy starcie
+echo. systemu. Przelaczniki:
+echo. /a – Program nie pyta o potwierdzenie usuniecia
+echo. /h – Program wyswietla pomoc.
+
+51.
+@echo off
+:next
+cls
+set /p a=Podaj liczbe:
+set /p d=Wybierz dzialanie(+, -, /, *):
+set /p b=Podaj kolejna liczbe:
+if %d%==+ (set /a c=%a%+%b%)
+if %d%==- (set /a c=%a%–%b%)
+if %d%==/ (set /a c=%a%/%b%)
+if %d%==* (set /a c=%a%*%b%)
+echo Wynik to %c%
+set /p n=Chcesz dzialac dalej?[y/n]
+if %n%==y goto :next
+
+52.
+@echo off
+set hex=%1
+set /a dec=0x%hex%
+echo %dec%
+
+53.
+@echo off
+set /p hex=Podaj liczbe hex:
+set /a dec=0x%hex%
+echo %dec%
+pause
+
+54.
+@echo off
+if %1==styczen echo 1
+if %1==luty echo 2
+if %1==marzec echo 3
+if %1==kwiecien echo 4
+if %1==maj echo 5
+if %1==czerwiec echo 6
+if %1==lipiec echo 7
+if %1==sierpien echo 8
+if %1==wrzesien echo 9
+if %1==pazdziernik echo 10
+if %1==listopad echo 11
+if %1==grudzien echo 12
+
+55.
+@echo off
+set /p nazwa=Podaj nazwe miesiaca:
+if %nazwa%==styczen echo 1
+if %nazwa%==luty echo 2
+if %nazwa%==marzec echo 3
+if %nazwa%==kwiecien echo 4
+if %nazwa%==maj echo 5
+if %nazwa%==czerwiec echo 6
+if %nazwa%==lipiec echo 7
+if %nazwa%==sierpien echo 8
+if %nazwa%==wrzesien echo 9
+if %nazwa%==pazdziernik echo 10
+if %nazwa%==listopad echo 11
+if %nazwa%==grudzien echo 12
+
+56.
+@echo off
+set /p nazwa=<miesiac.txt
+if %nazwa%==styczen echo 1 > miesiac.txt
+if %nazwa%==luty echo 2 > miesiac.txt
+if %nazwa%==marzec echo 3 > miesiac.txt
+if %nazwa%==kwiecien echo 4 > miesiac.txt
+if %nazwa%==maj echo 5 > miesiac.txt
+if %nazwa%==czerwiec echo 6 > miesiac.txt
+if %nazwa%==lipiec echo 7 > miesiac.txt
+if %nazwa%==sierpien echo 8 > miesiac.txt
+if %nazwa%==wrzesien echo 9 > miesiac.txt
+if %nazwa%==pazdziernik echo 10> miesiac.txt
+if %nazwa%==listopad echo 11 > miesiac.txt
+if %nazwa%==grudzien echo 12 > miesiac.txt
+
+57.
+@echo off
+set /p s=podaj ciag znakow:
+echo %s:~1,2%
+pause
+
+58.
+@echo off
+set string=%1
+set string=%string:slowo=%
+echo %string%
+pause
+
+59.
+@echo off
+set /p tekst=<%1
+echo %tekst:slowo=%
+pause
+
+60.
+@echo off
+set /p ciag1=daj ciag:
+set /p ciag2=daj nowy ciag:
+set wynik=%ciag1%%ciag2%
+echo Wynik to: %wynik%
+pause
+
+61.
+@echo off 
+set /p plik1=podaj sciezke do pliku1
+set /p plik2=podaj sciezke do pliku2
+set /p tekst1=<%plik1%\dane1.txt
+set /p tekst2=<%plik2%\dane2.txt
+echo %tekst1%%tekst2%
+pause
+
+62.
+@echo off
+echo %1
+pause
+
+63.
+@echo off
+:menu
+cls
+echo ========MENU=======
+echo === 1. Jeden 
+echo === 2. Dwa
+echo === 3. Trzy
+echo === 4. Zamknij menu
+echo ===================
+set /p select=Wybierz 1,2,3,4:
+IF %select%==1 GOTO opt1
+IF %select%==2 GOTO opt2
+IF %select%==3 goto opt3
+IF %select%==4 goto exit
+:opt1
+echo Wybrales opcje 1
+pause
+goto menu
+:opt2
+echo Wybrales opcje 2
+pause
+goto menu
+:opt3
+echo Wybrales opcje 3
+pause
+goto menu
+:exit
+echo Wybrales wyjscie
+pause
+
+64.
+@echo off
+set /p zmienna=<%1
+echo %zmienna%
+set zmienna=nowy tekst
+echo %zmienna%
+pause
+
+65.
+@echo off
+set /p zmienna=<%1
+echo %zmienna%
+set zmienna=nowy tekst
+echo %zmienna%
+echo %zmienna%>%2
+pause
+
+66.
+@echo off 
+forfiles /p %1 /m *.txt /C "cmd /c ren @fname.txt @fname.temp"
+set /p czyKopiowac=czy kopiowac?[Y/n]
+If %czyKopiowac%==Y (goto :kopiuj) else (goto :end)
+pause
+:kopiuj
+set /p data=podaj date do ktorej zrobic backup (DD/MM/YYYY)
+forfiles /p %1 /D -%data% /m *.temp /C "cmd /c xcopy @path D:\backup\@path"
+:end
+pause
