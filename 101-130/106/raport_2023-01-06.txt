@@ -1,0 +1,6 @@
+RAPORT ALGORYTMOW SORTOWANIA
+
+NAZWA                  LICZBA SORTOWANYCH PLIKOW     SREDNI CZAS                   
+1. bąbelkowe           900                           56.333065032958984 ms         
+2. wstawianie          900                           0.08702278137207031 ms        
+3. quick sort          900                           32.80496597290039 ms          
